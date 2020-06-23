@@ -15,6 +15,19 @@ func main() {
 
 	// Variadic parameter
 	foo5(2,3,4,5)
+
+	sliceInt := []int{1,2,3,4,5}
+	foo5(sliceInt...)
+
+	// Defer
+	defer foo6()
+	bar()
+
+	p := person {
+		name: "My Name",
+	}
+
+	p.walk()
 }
 
 func foo() {
@@ -37,4 +50,21 @@ func foo4(s string, s2 string) (string, bool) {
 func foo5(x ...int) {
 	fmt.Println(x)
 	fmt.Printf("%T\n", x)
+}
+
+func foo6() {
+	fmt.Println("Foo6")
+}
+
+func bar() {
+	fmt.Println("Bar")
+}
+
+// Attaching a Method to a struct
+type person struct {
+	name string
+}
+
+func (p person) walk() {
+	fmt.Println("I'm walking")
 }
