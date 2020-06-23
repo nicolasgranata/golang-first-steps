@@ -12,6 +12,9 @@ func main() {
 
 	a, b := foo4("Hello", "Bye")
 	fmt.Println(a, b)
+
+	// Variadic parameter
+	foo5(2,3,4,5)
 }
 
 func foo() {
@@ -28,4 +31,10 @@ func foo3(s string) string {
 
 func foo4(s string, s2 string) (string, bool) {
 	return s, true
+}
+
+// Variadic parameter
+func foo5(x ...int) {
+	fmt.Println(x)
+	fmt.Printf("%T\n", x)
 }
