@@ -28,6 +28,15 @@ func main() {
 	}
 
 	p.walk()
+
+	// Anonymous func
+	func(){
+		fmt.Println("Anonymous func")
+	}()
+
+	func(x int){
+		fmt.Println("Anonymous func", x)
+	}(30)
 }
 
 func foo() {
