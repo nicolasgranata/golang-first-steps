@@ -30,13 +30,25 @@ func main() {
 	p.walk()
 
 	// Anonymous func
-	func(){
+	func() {
 		fmt.Println("Anonymous func")
 	}()
 
-	func(x int){
+	func(x int) {
 		fmt.Println("Anonymous func", x)
 	}(30)
+
+	// Func expression
+	fex := func() {
+		fmt.Println("Func expression")
+	}
+
+	fex2 := func(x int) {
+		fmt.Println("Func expression passing parameters", x)
+	}
+
+	fex()
+	fex2(30)
 }
 
 func foo() {
