@@ -49,6 +49,17 @@ func main() {
 
 	fex()
 	fex2(30)
+
+	fmt.Println(foo7()())
+	fmt.Printf("%T\n", foo7())
+
+	ii := []int {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	evenNumbers := even(sum, ii...)
+	fmt.Println("even numbers", evenNumbers)
+
+	factorial := factorial(4)
+	fmt.Println(factorial)
 }
 
 func foo() {
@@ -88,4 +99,42 @@ type person struct {
 
 func (p person) walk() {
 	fmt.Println("I'm walking")
+}
+
+// Return a function
+func foo7() func() int {
+	return func() int {
+		return 123
+	}
+}
+
+
+// Callback
+func sum(xi ...int) int {
+	fmt.Printf("%T\n", xi)
+	total := 0
+	for _, v := range xi {
+		total += v
+	}
+	
+	return total
+}
+
+func even(f func(xi ...int) int, vi ...int) int {
+	var yi [] int
+	for _,v := range vi {
+		if v % 2 == 0 {
+			yi = append(yi, v)
+		}
+	}
+	return f(yi...)
+}
+
+//Recursion
+func factorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+
+	return n  * factorial(n - 1)
 }
