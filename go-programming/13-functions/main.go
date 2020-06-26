@@ -108,7 +108,6 @@ func foo7() func() int {
 	}
 }
 
-
 // Callback
 func sum(xi ...int) int {
 	fmt.Printf("%T\n", xi)
